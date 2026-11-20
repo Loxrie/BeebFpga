@@ -300,6 +300,16 @@ ${UPDATEMEM} -debug -force -meminfo ${IMPLDIR}/config_rom.mmi -data tmp.mem --bi
 
 rm -f tmp.mem updatemem*.log updatemem*.jou
 
+IMPLDIR=xilinx/bbc_micro_spec_next_issue5/bbc_micro_spec_next_issue5.runs/impl_1/
+
+echo "@00000000" > tmp.mem
+cat firmware/config.mem >> tmp.mem
+
+${UPDATEMEM} -debug -force -meminfo ${IMPLDIR}/config_rom.mmi -data tmp.mem --bit ${IMPLDIR}/bbc_micro_spec_next_issue5.bit --proc dummy --out $DIR/machines/${MACH}/core3.bit
+
+rm -f tmp.mem updatemem*.log updatemem*.jou
+
+
 # ====================================================
 # Acorn BBC Master
 # ====================================================
@@ -329,6 +339,15 @@ echo "@00000000" > tmp.mem
 cat firmware/config.mem >> tmp.mem
 
 ${UPDATEMEM} -debug -force -meminfo ${IMPLDIR}/config_rom.mmi -data tmp.mem --bit ${IMPLDIR}/bbc_micro_spec_next_issue4.bit --proc dummy --out $DIR/machines/${MACH}/core2.bit
+
+rm -f tmp.mem updatemem*.log updatemem*.jou
+
+IMPLDIR=xilinx/bbc_master_spec_next_issue5/bbc_master_spec_next_issue5.runs/impl_1/
+
+echo "@00000000" > tmp.mem
+cat firmware/config.mem >> tmp.mem
+
+${UPDATEMEM} -debug -force -meminfo ${IMPLDIR}/config_rom.mmi -data tmp.mem --bit ${IMPLDIR}/bbc_micro_spec_next_issue5.bit --proc dummy --out $DIR/machines/${MACH}/core3.bit
 
 rm -f tmp.mem updatemem*.log updatemem*.jou
 
